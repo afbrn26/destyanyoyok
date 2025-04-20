@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Destya & Yoyok</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Serif&family=Tangerine&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplycountdown.js/dist/simplyCountdown.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/simplycountdown.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Tangerine';
+      background: #fdf6ed;
+      color: #333;
+      overflow: hidden;
+    }
+    .section {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+    h1, h2, h3 {
+      margin: 10px 0;
+    }
+    .landing-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #fff0e5;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #c19a6b;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #a97f5e;
+    }
+    .profil-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin: 30px auto; /* Center horizontal */
+      max-width: 800px;
+      text-align: center; /* Untuk center kontennya secara keseluruhan */
+    }
+    
+    .bride, .groom {
+      width: 45%;
+    }
+
+    .bride p, .groom p {
+      text-align: center;
+    }
+
+    .bride h3, .groom h3 {
+      text-align: center;
+    }
+  
+    
+    .save-date {
+      text-align: center;
+      margin-top: 40px;
+    }
+      
+    .arabic {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border: 0;
+    }
+    input, textarea, select {
+      width: 80%;
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: block;
+    }
+    .gift {
+      background: #fff0e5;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .copy-btn {
+      cursor: pointer;
+      color: #c19a6b;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @media (max-width: 768px) {
+      .bride, .groom {
+        width: 100%;
+        text-align: center;
+      }
+    
+      .bride p, .groom p {
+        text-align: center;
+      }
+    
+      .bride h3, .groom h3 {
+        text-align: center;
+      }
+    }
+
+    /* Styling untuk gambar */
+    .hero-image {
+      margin-top: 20px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Media query untuk responsif */
+    @media (max-width: 768px) {
+      .hero-image {
+        width: 90%;
+        margin: 20px auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="landing-wrapper" id="landing">
+    <p>Kepada Bapak/Ibu/Saudara/i</p>
+    <h1 id="guest-name">Tamu Undangan yang Terhormat</h1>
+    <button onclick="openInvitation()">Buka Undangan</button>
+  </div>
+
+  <div id="mainContent" class="hidden">
+    <div id="fullpage">
+      <div class="section">
+        <h2>Walimatul 'Urs</h2>
+        <h1>Destya & Yoyok</h1>
+        <h3>Juni |21| 2025</h3>
+        <!-- Gambar tgn.jpg -->
+        <img src="https://via.placeholder.com/600x400" alt="Foto Pernikahan" class="hero-image">
+      </div>
+      <div class="section">
+        <p><em>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</em></p>
+        <p>(QS. Ar-Rum: 21)</p>
+        <div class="simply-countdown" id="countdown"></div>
+        <br>
+        <button>Simpan ke Kalender</button>
+      </div>
+
+      <div class="section">
+        <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
+        <p>Atas berkah dan rahmat Allah Subhanahu Wa Ta'ala. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami:</p>
+        
+        <div class="profil-wrapper">
+          <div class="bride">
+            <h3>Destya Renjani</h3>
+            <p>Anak pertama dari Bapak Rino Darmawansyah dan Ibu Mariani</p>
+          </div>
+          <div class="groom">
+            <h3>Yoyok HF</h3>
+            <p>Anak kedua dari Bapak Hamsyudi dan Ibu Fadilah</p>
+          </div>
+        </div>
+      
+        <div class="save-date">
+          <h4>Save the Date</h4>
+          <p>Sabtu, 21 Juni 2025 | Pukul 08.00 WIB</p>
+        </div>
+      </div>      
+
+      <div class="section">
+        <h3>Lokasi Acara</h3>
+        <p>Jalan Nenas Perumnas Roban No.125</p>
+        <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+      </div>
+      <div class="section">
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga...</p>
+        <form id="guest-form">
+          <input type="text" placeholder="Nama Anda" required>
+          <textarea placeholder="Ucapan" required></textarea>
+          <select required>
+            <option value="">Kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+          <button type="submit">Kirim</button>
+        </form>
+        <div id="guest-list"></div>
+      </div>
+      <div class="section">
+        <h3>Titip Hadiah</h3>
+        <p>Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami...</p>
+        <div class="gift">
+          <p><strong>Bank BRI</strong></p>
+          <p><span id="rekening">485301019707539</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
+          <p>a.n Yoyok HF</p>
+          <p><strong>Bank BSI</strong></p>
+          <p><span id="rekening">7250173808</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
+          <p>a.n Destya Renjani</p>
+        </div>
+        <p>&copy; 2025 Destya & Yoyok</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openInvitation() {
+      document.getElementById('landing').classList.add('hidden');
+      document.getElementById('mainContent').classList.remove('hidden');
+      new fullpage('#fullpage', {
+        autoScrolling: true,
+        navigation: true,
+        anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
+        navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
+        showActiveTooltip: true,
+      });
+    }
+
+    function copyRek() {
+      navigator.clipboard.writeText(document.getElementById('rekening').innerText);
+      alert('Nomor rekening disalin!');
+    }
+
+    document.getElementById('guest-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = this.querySelector('input').value;
+      const msg = this.querySelector('textarea').value;
+      const attend = this.querySelector('select').value;
+      const entry = `<p><strong>${name}</strong> (${attend}): ${msg}</p>`;
+      document.getElementById('guest-list').innerHTML += entry;
+      this.reset();
+    });
+
+    simplyCountdown('#countdown', {
+      year: 2025,
+      month: 6,
+      day: 22
+    });
+
+    // Ambil nama tamu dari URL dan tampilkan
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTamu = urlParams.get('to');
+    if (namaTamu) {
+      document.getElementById('guest-name').innerText = decodeURIComponent(namaTamu);
+    }
+  </script>
+</body>
+</html>
