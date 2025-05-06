@@ -21,18 +21,22 @@
       background: url('bg.jpg') no-repeat center center fixed; /* Tambahkan ini */
       background-size: cover; /* Agar gambar menutupi seluruh layar */
       color: #333;
-      overflow: hidden;
+      overflow: auto;
     }
 
     .section {
+      min-height: 100vh;
+      height: auto; /* Biarkan tinggi otomatis jika konten lebih tinggi */
       text-align: center;
       font-family: 'Playfair Display', serif;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 60px 20px;
+      padding: 80px 40px;
+      overflow-y: auto;
     }
+
     h1, h2, h3 {
       margin: 10px 0;
     }
@@ -41,7 +45,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: auto;
   background: transparent;
   z-index: 1000;
   display: flex;
@@ -50,6 +54,7 @@
   align-items: center;
   text-align: center;
   animation: fadeIn 1.5s ease-in-out;
+  min-height: 100vh;
 }
 
 .invitation-header {
@@ -94,6 +99,29 @@
   border-radius: 10px;
 }
 
+#mainContent .section h1 {
+  margin: 10px 0;
+  padding: 0;
+  font-family: 'Tangerine', cursive;
+  font-size: 5rem;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#mainContent .section h2,
+#mainContent .section h3 {
+  margin: 10px 0;
+  padding: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.highlight-day {
+  font-size: 2rem; /* Ukuran lebih besar dari teks h3 */
+  font-weight: normal;
+}
 
     .hidden {
       display: none;
@@ -134,7 +162,6 @@
       text-align: center;
     }
   
-    
     .save-date {
       text-align: center;
       margin-top: 40px;
@@ -168,15 +195,34 @@
       cursor: pointer;
       color: #c19a6b;
     }
+
+    /* Sembunyikan navigasi fullpage.js */
+.fp-nav {
+  display: none !important;
+}
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
     @media (max-width: 768px) {
-      .bride, .groom {
-        width: 100%;
-        text-align: center;
+      .section {
+        padding: 40px 15px;
+        min-height: 100vh;
       }
+    
+      .section h1 {
+        font-size: 3rem;
+      }
+    
+      .section h2, .section h3 {
+        font-size: 1rem;
+      }
+    
+      button {
+        font-size: 20px;
+        padding: 8px 16px;
+      }
+    }
     
       .bride p, .groom p {
         text-align: center;
@@ -189,7 +235,32 @@
       .landing-wrapper img[src="tangan.jpg"] {
         max-width: 200px; /* Ukuran lebih kecil untuk layar kecil */
       }
+
+    /* Animasi Fade In */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUpSlow 2s ease-out forwards;
     }
+    
+    @keyframes fadeInUpSlow {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      60% {
+        opacity: 0.6;
+        transform: translateY(10px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .fade-delay-1 { animation-delay: 0.8s; }
+    .fade-delay-2 { animation-delay: 2s; }
+    .fade-delay-3 { animation-delay: 3.2s; }
 
     /* Styling untuk gambar */
     .hero-image {
@@ -225,12 +296,10 @@
   <div id="mainContent" class="hidden">
     <div id="fullpage">
       <div class="section">
-        <h2>Walimatul 'Urs</h2>
-        <h1>Destya & Yoyok</h1>
-        <h3>Juni |21| 2025</h3>
-        <!-- Gambar tgn.jpg -->
-        <img src="https://via.placeholder.com/600x400" alt="Foto Pernikahan" class="hero-image">
-      </div>
+        <h2 class="fade-in fade-delay-1">Walimatul 'Urs</h2>
+        <h1 class="fade-in fade-delay-2">Destya <br> & <br> Yoyok</h1>
+        <h3 class="fade-in fade-delay-3">Juni |<span class="highlight-day"> 21 </span>| 2025</h3>
+  </div>
       <div class="section">
         <p><em>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</em></p>
         <p>(QS. Ar-Rum: 21)</p>
@@ -239,8 +308,8 @@
         <button>Simpan ke Kalender</button>
       </div>
 
-      <div class="section">
-        <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
+  <div class="section">
+    <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
         <p>Atas berkah dan rahmat Allah Subhanahu Wa Ta'ala. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami:</p>
         
         <div class="profil-wrapper">
@@ -298,13 +367,38 @@
   <script>
     function openInvitation() {
       document.getElementById('landing').classList.add('hidden');
-      document.getElementById('mainContent').classList.remove('hidden');
-      new fullpage('#fullpage', {
-        autoScrolling: true,
-        navigation: true,
-        anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
-        navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
-        showActiveTooltip: true,
+      const mainContent = document.getElementById('mainContent');
+      mainContent.classList.remove('hidden');
+    
+      // Beri sedikit delay agar DOM benar-benar ready
+      setTimeout(() => {
+        new fullpage('#fullpage', {
+          autoScrolling: true,
+          fitToSection: true,
+          fitToSectionDelay: 500,
+          scrollBar: false,
+          navigation: false, // Matikan navigasi
+          anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
+          navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
+          showActiveTooltip: true,
+          afterLoad: function(origin, destination, direction) {
+            if (destination.index === 0) {
+              triggerAnimations(); // Jalankan animasi hanya sekali saat section pertama dimuat
+            }
+          }
+        });
+      }, 100);
+    }
+    
+    // Fungsi untuk memicu animasi
+    function triggerAnimations() {
+      console.log("Triggering animations...");
+      const elements = document.querySelectorAll('.fade-in');
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, index * 1200); // Delay antar elemen
       });
     }
 
