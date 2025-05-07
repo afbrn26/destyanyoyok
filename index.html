@@ -15,6 +15,7 @@
   <style>
     
     html, body {
+      scroll-behavior: smooth;
       margin: 0;
       padding: 0;
       font-family: 'Tangerine';
@@ -22,6 +23,13 @@
       background-size: cover; /* Agar gambar menutupi seluruh layar */
       color: #333;
       overflow: auto;
+    }
+
+    .parallax {
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
     .section {
@@ -103,7 +111,7 @@
   margin: 10px 0;
   padding: 0;
   font-family: 'Tangerine', cursive;
-  font-size: 5rem;
+  font-size: 5rem !important;
   font-weight: bold;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -123,9 +131,6 @@
   font-weight: normal;
 }
 
-    .hidden {
-      display: none;
-    }
     button {
       padding: 10px 20px;
       font-size: 30px;
@@ -197,19 +202,66 @@
     }
 
     /* Sembunyikan navigasi fullpage.js */
-.fp-nav {
-  display: none !important;
+    .fp-nav {
+      display: none !important;
+    }
+
+/* Kelas hidden */
+.hidden {
+  display: none;
 }
+
+/* Efek FadeIn */
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Styling untuk gambar */
+.hero-image {
+  width: 100%; /* Mengikuti lebar kontainer */
+  max-width: 400px !important; /* Ukuran maksimal gambar (sesuaikan dengan kebutuhan) */
+  height: auto; /* Tinggi otomatis sesuai aspek rasio */
+  display: block;
+  margin: 0 auto; /* Menyentraikan gambar */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efek FadeIn */
+.fadeIn {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* Styling untuk gambar */
+.hero-image {
+  width: 100%;
+  max-width: 350px !important;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
     @media (max-width: 768px) {
       .section {
-        padding: 40px 15px;
+        padding: 50px 25px;
         min-height: 100vh;
       }
-    
+    @media (max-width: 768px) {
+      .hero-image {
+        max-width: 300px; /* Ukuran lebih kecil untuk layar kecil */
+      }
+     }
       .section h1 {
         font-size: 3rem;
       }
@@ -236,37 +288,43 @@
         max-width: 200px; /* Ukuran lebih kecil untuk layar kecil */
       }
 
-    /* Animasi Fade In */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUpSlow 2s ease-out forwards;
-    }
-    
-    @keyframes fadeInUpSlow {
-      0% {
+      /* Efek slide-up */
+      .slide-up {
+        transform: translateY(100%);
         opacity: 0;
-        transform: translateY(30px);
+        transition: all 0.5s ease-in-out;
       }
-      60% {
-        opacity: 0.6;
-        transform: translateY(10px);
-      }
-      100% {
-        opacity: 1;
+
+      .slide-up.active {
         transform: translateY(0);
+        opacity: 1;
       }
+
+      /* Efek fadeIn */
+      .fadeIn {
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+      }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-    
-    .fade-delay-1 { animation-delay: 0.8s; }
-    .fade-delay-2 { animation-delay: 2s; }
-    .fade-delay-3 { animation-delay: 3.2s; }
+
+    /* Efek zoom-in */
+    .zoom-in {
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+    }
 
     /* Styling untuk gambar */
     .hero-image {
-      margin-top: 20px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 600px;
       height: auto;
+      display: block;
+      margin: 0 auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
@@ -276,100 +334,141 @@
       .hero-image {
         width: 90%;
         margin: 20px auto;
+        max-width: 300px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="landing-wrapper" id="landing">
-    <div class="invitation-header">
-      <h2>Walimatul 'Urs</h2>
-      <img src="tangan.jpg" alt="Hands Holding" class="responsive-image" />
-      <h4>Yoyok & Destya</h4>
-      <h3>21.06.2025</h3>
-    </div>
-    <p>Kepada Bapak/Ibu/Saudara/i</p>
-    <h1 id="guest-name">Tamu Undangan yang Terhormat</h1>
-    <button onclick="openInvitation()">Buka Undangan</button>
+<!-- Landing Page -->
+<div class="landing-wrapper" id="landing">
+  <div class="invitation-header">
+    <h2>Walimatul 'Urs</h2>
+    <img src="tangan.jpg" alt="Hands Holding" class="responsive-image" />
+    <h4>Yoyok & Destya</h4>
+    <h3>21.06.2025</h3>
   </div>
+  <p>Kepada Bapak/Ibu/Saudara/i</p>
+  <h1 id="guest-name">Tamu Undangan yang Terhormat</h1>
+  <button onclick="openInvitation()">Buka Undangan</button>
+</div>
 
-  <div id="mainContent" class="hidden">
-    <div id="fullpage">
-      <div class="section">
-        <h2 class="fade-in fade-delay-1">Walimatul 'Urs</h2>
-        <h1 class="fade-in fade-delay-2">Destya <br> & <br> Yoyok</h1>
-        <h3 class="fade-in fade-delay-3">Juni |<span class="highlight-day"> 21 </span>| 2025</h3>
-  </div>
-      <div class="section">
-        <p><em>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</em></p>
-        <p>(QS. Ar-Rum: 21)</p>
-        <div class="simply-countdown" id="countdown"></div>
-        <br>
-        <button>Simpan ke Kalender</button>
-      </div>
+<!-- Halaman Utama -->
+<div id="mainContent" class="hidden">
+  <div id="fullpage">
 
-  <div class="section">
-    <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
-        <p>Atas berkah dan rahmat Allah Subhanahu Wa Ta'ala. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami:</p>
-        
-        <div class="profil-wrapper">
-          <div class="bride">
-            <h3>Destya Renjani</h3>
-            <p>Anak pertama dari Bapak Rino Darmawansyah dan Ibu Mariani</p>
-          </div>
-          <div class="groom">
-            <h3>Yoyok HF</h3>
-            <p>Anak kedua dari Bapak Hamsyudi dan Ibu Fadilah</p>
-          </div>
-        </div>
+<!-- Section 1 - Gambar satu.png -->
+<div class="section">
+  <img src="satu.png" alt="Undangan Pernikahan" class="hero-image hidden fadeIn">
+</div>
+
+<!-- Section 2 - Ayat -->
+<div class="section">
+  <p><em>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</em></p>
+  <p>(QS. Ar-Rum: 21)</p>
+  <div class="simply-countdown" id="countdown"></div>
+  <br>
+  <button>Simpan ke Kalender</button>
+</div>
+
+<div class="section">
+  <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
+      <p>Atas berkah dan rahmat Allah Subhanahu Wa Ta'ala. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami:</p>
       
-        <div class="save-date">
-          <h4>Save the Date</h4>
-          <p>Sabtu, 21 Juni 2025 | Pukul 08.00 WIB</p>
-        </div>
-      </div>      
+      <div class="bride">
+        <img src="bride.jpg" alt="Bride" class="zoom-in">
+        <h3>Destya Renjani</h3>
+        <p>Anak pertama dari Bapak Rino Darmawansyah dan Ibu Mariani</p>
+      </div>
+      <div class="groom">
+        <img src="groom.jpg" alt="Groom" class="zoom-in">
+        <h3>Yoyok HF</h3>
+        <p>Anak kedua dari Bapak Hamsyudi dan Ibu Fadilah</p>
+      </div>
+    
+      <div class="save-date">
+        <h4>Save the Date</h4>
+        <p>Sabtu, 21 Juni 2025 | Pukul 08.00 WIB</p>
+      </div>
+    </div>      
 
-      <div class="section">
-        <h3>Lokasi Acara</h3>
-        <p>Jalan Nenas Perumnas Roban No.125</p>
-        <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    <div class="section">
+      <h3>Lokasi Acara</h3>
+      <p>Jalan Nenas Perumnas Roban No.125</p>
+      <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </div>
+    <div class="section">
+      <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga...</p>
+      <form id="guest-form">
+        <input type="text" placeholder="Nama Anda" required>
+        <textarea placeholder="Ucapan" required></textarea>
+        <select required>
+          <option value="">Kehadiran</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select>
+        <button type="submit">Kirim</button>
+      </form>
+      <div id="guest-list"></div>
+    </div>
+    <div class="section">
+      <h3>Titip Hadiah</h3>
+      <p>Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami...</p>
+      <div class="gift">
+        <p><strong>Bank BRI</strong></p>
+        <p><span class="rekening">485301019707539</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
+        <p>a.n Yoyok HF</p>
+        <p><strong>Bank BSI</strong></p>
+        <p><span class="rekening">7250173808</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
+        <p>a.n Destya Renjani</p>
       </div>
-      <div class="section">
-        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga...</p>
-        <form id="guest-form">
-          <input type="text" placeholder="Nama Anda" required>
-          <textarea placeholder="Ucapan" required></textarea>
-          <select required>
-            <option value="">Kehadiran</option>
-            <option value="Hadir">Hadir</option>
-            <option value="Tidak Hadir">Tidak Hadir</option>
-          </select>
-          <button type="submit">Kirim</button>
-        </form>
-        <div id="guest-list"></div>
-      </div>
-      <div class="section">
-        <h3>Titip Hadiah</h3>
-        <p>Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami...</p>
-        <div class="gift">
-          <p><strong>Bank BRI</strong></p>
-          <p><span id="rekening">485301019707539</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
-          <p>a.n Yoyok HF</p>
-          <p><strong>Bank BSI</strong></p>
-          <p><span id="rekening">7250173808</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
-          <p>a.n Destya Renjani</p>
-        </div>
-        <p>&copy; 2025 Destya & Yoyok</p>
-      </div>
+      <p>&copy; 2025 Destya & Yoyok</p>
     </div>
   </div>
+</div>
 
+<!-- fullpage.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
   <script>
     function openInvitation() {
+      // Sembunyikan landing page
       document.getElementById('landing').classList.add('hidden');
-      const mainContent = document.getElementById('mainContent');
-      mainContent.classList.remove('hidden');
     
+      // Tampilkan halaman utama
+      const mainContent = document.getElementById('mainContent');
+      if (mainContent) {
+        mainContent.classList.remove('hidden');
+      }
+    
+      // Tampilkan gambar satu.png dengan animasi fadeIn
+      const heroImage = document.querySelector('.hero-image');
+      if (heroImage) {
+        heroImage.classList.remove('hidden'); // Hapus kelas 'hidden'
+        heroImage.classList.add('fadeIn');    // Tambahkan efek fadeIn
+      }
+    
+      // Inisialisasi fullPage.js setelah DOM siap
+      setTimeout(() => {
+        new fullpage('#fullpage', {
+          autoScrolling: true,
+          fitToSection: true,
+          fitToSectionDelay: 500,
+          scrollBar: false,
+          navigation: false,
+          anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
+          navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
+          showActiveTooltip: true
+        });
+      }, 100);
+    }
+
+  // Pada saat halaman utama dibuka
+  setTimeout(() => {
+    document.querySelectorAll('img').forEach(img => {
+      img.classList.add('active');
+    });
+  }, 200);
       // Beri sedikit delay agar DOM benar-benar ready
       setTimeout(() => {
         new fullpage('#fullpage', {
@@ -380,33 +479,19 @@
           navigation: false, // Matikan navigasi
           anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
           navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
-          showActiveTooltip: true,
-          afterLoad: function(origin, destination, direction) {
-            if (destination.index === 0) {
-              triggerAnimations(); // Jalankan animasi hanya sekali saat section pertama dimuat
-            }
-          }
+          showActiveTooltip: true
         });
       }, 100);
-    }
-    
-    // Fungsi untuk memicu animasi
-    function triggerAnimations() {
-      console.log("Triggering animations...");
-      const elements = document.querySelectorAll('.fade-in');
-      elements.forEach((el, index) => {
-        setTimeout(() => {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, index * 1200); // Delay antar elemen
+  
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const rek = btn.previousElementSibling.textContent;
+          navigator.clipboard.writeText(rek).then(() => {
+            alert('Nomor rekening disalin!');
+          });
+        });
       });
-    }
-
-    function copyRek() {
-      navigator.clipboard.writeText(document.getElementById('rekening').innerText);
-      alert('Nomor rekening disalin!');
-    }
-
+  
     document.getElementById('guest-form')?.addEventListener('submit', function(e) {
       e.preventDefault();
       const name = this.querySelector('input').value;
@@ -416,13 +501,13 @@
       document.getElementById('guest-list').innerHTML += entry;
       this.reset();
     });
-
+  
     simplyCountdown('#countdown', {
       year: 2025,
       month: 6,
       day: 22
     });
-
+  
     // Ambil nama tamu dari URL dan tampilkan
     const urlParams = new URLSearchParams(window.location.search);
     const namaTamu = urlParams.get('to');
