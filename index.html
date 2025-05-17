@@ -107,30 +107,61 @@
   border-radius: 10px;
 }
 
+/* Judul besar */
 #mainContent .section h1 {
-  margin: 10px 0;
+  margin: 0;
   padding: 0;
   font-family: 'Tangerine', cursive;
-  font-size: 5rem !important;
-  font-weight: bold;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  font-size: 3rem !important;
+  color: #a0906a;
+  font-weight: normal;
+  line-height: 1.2;
 }
 
-#mainContent .section h2,
+/* Subjudul dan deskripsi */
 #mainContent .section h3 {
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 0;
+  color: #a0906a;
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: normal;
+  line-height: 1.4;
+  transform:  translateY(80px);
 }
 
+#mainContent .section h2 {
+  margin: 5px 0;
+  padding: 0;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+  transform:  translateY(-50px);
+}
+
+#mainContent .section p {
+  margin: 5px 0;
+  padding: 0;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.4;
+  transform:  translateY(50px);
+}
+
+/* Tanggal yang diberi highlight */
 .highlight-day {
-  font-size: 2rem; /* Ukuran lebih besar dari teks h3 */
+  font-size: 2rem;
+  color: #a0906a;
   font-weight: normal;
 }
 
+    .hidden {
+      display: none;
+    }
     button {
       padding: 10px 20px;
       font-size: 30px;
@@ -205,49 +236,6 @@
     .fp-nav {
       display: none !important;
     }
-
-/* Kelas hidden */
-.hidden {
-  display: none;
-}
-
-/* Efek FadeIn */
-.fadeIn {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-
-/* Styling untuk gambar */
-.hero-image {
-  width: 100%; /* Mengikuti lebar kontainer */
-  max-width: 450px !important; /* Ukuran maksimal gambar (sesuaikan dengan kebutuhan) */
-  height: auto; /* Tinggi otomatis sesuai aspek rasio */
-  display: block;
-  margin: 0 auto; /* Menyentraikan gambar */
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Efek FadeIn */
-.fadeIn {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-}
-
-/* Styling untuk gambar */
-.hero-image {
-  width: 100%;
-  max-width: 350px !important;
-  height: auto;
-  margin: 0 auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -257,11 +245,7 @@
         padding: 50px 25px;
         min-height: 100vh;
       }
-    @media (max-width: 768px) {
-      .hero-image {
-        max-width: 300px; /* Ukuran lebih kecil untuk layar kecil */
-      }
-     }
+    
       .section h1 {
         font-size: 3rem;
       }
@@ -287,6 +271,162 @@
       .landing-wrapper img[src="tangan.jpg"] {
         max-width: 200px; /* Ukuran lebih kecil untuk layar kecil */
       }
+      
+/* Styling untuk .invitation-box */
+.invitation-box {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 500px; /* Tinggi minimum agar konten tetap terlihat */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Sentra secara vertikal */
+  align-items: center; /* Sentra secara horizontal */
+  background-image: url('box.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+  border: 10px solid transparent; /* Lebar border sesuai kebutuhan */
+  border-image-slice: 200; /* Sesuaikan agar gambar frame dipotong dengan benar */
+
+  border-image-repeat: round; /* Gambar akan disesuaikan agar pas di semua sisi */
+}
+
+.invitation-box h1 {
+  font-family: 'Tangerine', cursive;
+  font-size: 3rem;
+  color: #a0906a;
+  margin-top: -5px;
+}
+
+.invitation-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #333;
+  margin-top: -5px;
+}
+
+.invitation-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: -5px;
+}
+
+.invitation-box p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #333;
+  margin-top: -5px;
+}
+
+/* Kotak Ayat dengan aq.png */
+.verse-box {
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('aq.png');
+  background-size: cover;
+  background-position: center;
+  padding: 40px;
+  padding-top: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #333;
+  position: relative;
+  border-radius: 10px;
+}
+
+/* Gaya teks */
+.verse-box p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.verse-box p:first-of-type {
+  margin-top: 30px;
+}
+
+/* Tombol */
+.verse-box button {
+  font-family: 'Tangerine', cursive;
+  font-size: 1.2rem;
+  background-color: #c19a6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.verse-box button:hover {
+  background-color: #a97f5e;
+}
+
+@media (max-width: 768px) {
+  .verse-box {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .verse-box p:first-of-type {
+    margin-top: 20px;
+  }
+
+  .verse-box p {
+    font-size: 0.95rem;
+  }
+
+  .verse-box button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}
+
+
+/* Responsifitas untuk mobile */
+@media (max-width: 768px) {
+  .invitation-box {
+    width: 90%; /* Ukuran lebih kecil untuk layar kecil */
+  }
+}
+
+      /* Font Styling */
+      h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+      }
+
+      p {
+        font-family: 'Playfair Display', serif;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 30px;
+        font-family: 'Tangerine', cursive;
+        background: #c19a6b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: #a97f5e;
+      }
 
       /* Efek slide-up */
       .slide-up {
@@ -300,17 +440,6 @@
         opacity: 1;
       }
 
-      /* Efek fadeIn */
-      .fadeIn {
-        opacity: 0;
-        animation: fadeIn 1s ease-in-out forwards;
-      }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     /* Efek zoom-in */
     .zoom-in {
       transform: scale(0.8);
@@ -318,13 +447,16 @@
       transition: all 0.5s ease-in-out;
     }
 
+    .zoom-in.active {
+      transform: scale(1);
+      opacity: 1;
+    }
+
     /* Styling untuk gambar */
     .hero-image {
-      width: 100%;
-      max-width: 600px;
+      margin-top: 20px;
+      max-width: 100%;
       height: auto;
-      display: block;
-      margin: 0 auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
@@ -333,135 +465,154 @@
     @media (max-width: 768px) {
       .hero-image {
         width: 90%;
-        margin: 20px auto;
-        max-width: 300px;
+        margin: 40px auto;
       }
     }
   </style>
 </head>
 <body>
-<!-- Landing Page -->
-<div class="landing-wrapper" id="landing">
-  <div class="invitation-header">
-    <h2>Walimatul 'Urs</h2>
-    <img src="tangan.jpg" alt="Hands Holding" class="responsive-image" />
-    <h4>Yoyok & Destya</h4>
-    <h3>21.06.2025</h3>
+  <div class="landing-wrapper" id="landing">
+    <div class="invitation-header">
+      <h2>Walimatul 'Urs</h2>
+      <img src="tangan.jpg" alt="Hands Holding" class="responsive-image" />
+      <h4>Destya & Yoyok</h4>
+      <h3>21.06.2025</h3>
+    </div>
+    <p>Kepada Bapak/Ibu/Saudara/i</p>
+    <h1 id="guest-name">Tamu Undangan yang Terhormat</h1>
+    <button onclick="openInvitation()">Buka Undangan</button>
   </div>
-  <p>Kepada Bapak/Ibu/Saudara/i</p>
-  <h1 id="guest-name">Tamu Undangan yang Terhormat</h1>
-  <button onclick="openInvitation()">Buka Undangan</button>
-</div>
 
-<!-- Halaman Utama -->
-<div id="mainContent" class="hidden">
-  <div id="fullpage">
-
-<!-- Section 1 - Gambar satu.png -->
-<div class="section">
-  <img src="satu.png" alt="Undangan Pernikahan" class="hero-image hidden fadeIn">
-</div>
-
-<!-- Section 2 - Ayat -->
-<div class="section">
-  <p><em>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu..."</em></p>
-  <p>(QS. Ar-Rum: 21)</p>
-  <div class="simply-countdown" id="countdown"></div>
-  <br>
-  <button>Simpan ke Kalender</button>
-</div>
+  <div id="mainContent" class="hidden">
+    <div id="fullpage">
+      <div class="section">
+        <div class="invitation-box">
+        <h2 class="fadeIn">WALIMATUL 'URS</h2>
+        <h1 class="fadeIn">Destya & Yoyok</h1>
+        <P>Yang akan diselenggarakan pada tempat dan waktu berikut:</P>
+        <h3 class="fadeIn">Juni |<span class="highlight-day"> 21 </span>| 2025</h3>
+        </div>
+  </div>
 
 <div class="section">
-  <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
-      <p>Atas berkah dan rahmat Allah Subhanahu Wa Ta'ala. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami:</p>
+  <div class="verse-box fadeIn">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>"Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tenteram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kebesaran Allah) bagi kaum yang berpikir."</p>
+    <br>
+    <p>(QS. Ar-Rum: 21)</p>
+    <br>
+    <br>
+    <br>
+    <div id="countdown"></div>
+    <br>
+    <button>Simpan ke Kalender</button>
+  </div>
+</div>
+
+  <div class="section">
+    <p class="arabic">بِسْمِ اللّهِ الرَّحْمَنِ الرَّحِيم</p>
+        <p>Atas berkah dan rahmat Allah Subhanahu Wa Ta'ala. Tanpa mengurangi rasa hormat, kami mengundang Bapak/Ibu/Saudara/i serta kerabat sekalian untuk menghadiri acara pernikahan kami:</p>
+        
+        <div class="bride">
+          <img src="bride.jpg" alt="Bride" class="zoom-in">
+          <h3>Destya Renjani</h3>
+          <p>Anak pertama dari Bapak Rino Darmawansyah dan Ibu Mariani</p>
+        </div>
+        <div class="groom">
+          <img src="groom.jpg" alt="Groom" class="zoom-in">
+          <h3>Yoyok HF</h3>
+          <p>Anak kedua dari Bapak Hamsyudi dan Ibu Fadilah</p>
+        </div>
       
-      <div class="bride">
-        <img src="bride.jpg" alt="Bride" class="zoom-in">
-        <h3>Destya Renjani</h3>
-        <p>Anak pertama dari Bapak Rino Darmawansyah dan Ibu Mariani</p>
-      </div>
-      <div class="groom">
-        <img src="groom.jpg" alt="Groom" class="zoom-in">
-        <h3>Yoyok HF</h3>
-        <p>Anak kedua dari Bapak Hamsyudi dan Ibu Fadilah</p>
-      </div>
-    
-      <div class="save-date">
-        <h4>Save the Date</h4>
-        <p>Sabtu, 21 Juni 2025 | Pukul 08.00 WIB</p>
-      </div>
-    </div>      
+        <div class="save-date">
+          <h4>Save the Date</h4>
+          <p>Sabtu, 21 Juni 2025 | Pukul 08.00 WIB</p>
+        </div>
+      </div>      
 
-    <div class="section">
-      <h3>Lokasi Acara</h3>
-      <p>Jalan Nenas Perumnas Roban No.125</p>
-      <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
-    </div>
-    <div class="section">
-      <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga...</p>
-      <form id="guest-form">
-        <input type="text" placeholder="Nama Anda" required>
-        <textarea placeholder="Ucapan" required></textarea>
-        <select required>
-          <option value="">Kehadiran</option>
-          <option value="Hadir">Hadir</option>
-          <option value="Tidak Hadir">Tidak Hadir</option>
-        </select>
-        <button type="submit">Kirim</button>
-      </form>
-      <div id="guest-list"></div>
-    </div>
-    <div class="section">
-      <h3>Titip Hadiah</h3>
-      <p>Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami...</p>
-      <div class="gift">
-        <p><strong>Bank BRI</strong></p>
-        <p><span class="rekening">485301019707539</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
-        <p>a.n Yoyok HF</p>
-        <p><strong>Bank BSI</strong></p>
-        <p><span class="rekening">7250173808</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
-        <p>a.n Destya Renjani</p>
+      <div class="section">
+        <h3>Lokasi Acara</h3>
+        <p>Jalan Nenas Perumnas Roban No.125</p>
+        <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
       </div>
-      <p>&copy; 2025 Destya & Yoyok</p>
+      <div class="section">
+        <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga...</p>
+        <form id="guest-form">
+          <input type="text" placeholder="Nama Anda" required>
+          <textarea placeholder="Ucapan" required></textarea>
+          <select required>
+            <option value="">Kehadiran</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak Hadir">Tidak Hadir</option>
+          </select>
+          <button type="submit">Kirim</button>
+        </form>
+        <div id="guest-list"></div>
+      </div>
+      <div class="section">
+        <h3>Titip Hadiah</h3>
+        <p>Doa restu Bapak/Ibu sekalian merupakan karunia yang sangat berarti bagi kami...</p>
+        <div class="gift">
+          <p><strong>Bank BRI</strong></p>
+          <p><span id="rekening">485301019707539</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
+          <p>a.n Yoyok HF</p>
+          <p><strong>Bank BSI</strong></p>
+          <p><span id="rekening">7250173808</span> <span class="copy-btn" onclick="copyRek()">📋 Copy</span></p>
+          <p>a.n Destya Renjani</p>
+        </div>
+        <p>&copy; 2025 Destya & Yoyok</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- fullpage.js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
   <script>
     function openInvitation() {
-      // Sembunyikan landing page
       document.getElementById('landing').classList.add('hidden');
-    
-      // Tampilkan halaman utama
       const mainContent = document.getElementById('mainContent');
-      if (mainContent) {
-        mainContent.classList.remove('hidden');
-      }
-    
-      // Tampilkan gambar satu.png dengan animasi fadeIn
-      const heroImage = document.querySelector('.hero-image');
-      if (heroImage) {
-        heroImage.classList.remove('hidden'); // Hapus kelas 'hidden'
-        heroImage.classList.add('fadeIn');    // Tambahkan efek fadeIn
-      }
-    
-      // Inisialisasi fullPage.js setelah DOM siap
-      setTimeout(() => {
-        new fullpage('#fullpage', {
-          autoScrolling: true,
-          fitToSection: true,
-          fitToSectionDelay: 500,
-          scrollBar: false,
-          navigation: false,
-          anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
-          navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
-          showActiveTooltip: true
-        });
-      }, 100);
-    }
+      mainContent.classList.remove('hidden');
+      // tambahkan efek slide-up ke setiap section
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.add('slide-up');
+      });
+
+      // Pada saat halaman utama dibuka
+function openInvitation() {
+  document.getElementById('landing').classList.add('hidden');
+  const mainContent = document.getElementById('mainContent');
+  mainContent.classList.remove('hidden');
+
+  // Tambahkan efek slide-up ke setiap section
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.add('slide-up');
+  });
+
+  // Setelah delay, aktifkan animasi
+  setTimeout(() => {
+    document.querySelectorAll('.section').forEach(section => {
+      section.classList.add('active');
+    });
+  }, 100);
+
+  // Inisialisasi fullPage.js
+  setTimeout(() => {
+    new fullpage('#fullpage', {
+      autoScrolling: true,
+      fitToSection: true,
+      fitToSectionDelay: 500,
+      scrollBar: false,
+      navigation: false, // Matikan navigasi
+      anchors: ['walimatul', 'ayat', 'profil', 'lokasi', 'kehadiran', 'hadiah'],
+      navigationTooltips: ['Walimatul', 'Ayat', 'Profil', 'Lokasi', 'Kehadiran', 'Hadiah'],
+      showActiveTooltip: true
+    });
+  }, 100);
 
   // Pada saat halaman utama dibuka
   setTimeout(() => {
@@ -469,6 +620,7 @@
       img.classList.add('active');
     });
   }, 200);
+}
       // Beri sedikit delay agar DOM benar-benar ready
       setTimeout(() => {
         new fullpage('#fullpage', {
@@ -482,15 +634,12 @@
           showActiveTooltip: true
         });
       }, 100);
+    }
   
-      document.querySelectorAll('.copy-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const rek = btn.previousElementSibling.textContent;
-          navigator.clipboard.writeText(rek).then(() => {
-            alert('Nomor rekening disalin!');
-          });
-        });
-      });
+    function copyRek() {
+      navigator.clipboard.writeText(document.getElementById('rekening').innerText);
+      alert('Nomor rekening disalin!');
+    }
   
     document.getElementById('guest-form')?.addEventListener('submit', function(e) {
       e.preventDefault();
@@ -505,7 +654,7 @@
     simplyCountdown('#countdown', {
       year: 2025,
       month: 6,
-      day: 22
+      day: 21
     });
   
     // Ambil nama tamu dari URL dan tampilkan
@@ -514,6 +663,34 @@
     if (namaTamu) {
       document.getElementById('guest-name').innerText = decodeURIComponent(namaTamu);
     }
+
+// Fungsi untuk mengaktifkan animasi fadeIn
+function activateAnimations() {
+  const elements = document.querySelectorAll('.fadeIn');
+  // Loop melalui semua elemen dengan class .fadeIn
+  elements.forEach((element, index) => {
+    setTimeout(() => {
+      element.classList.add('active');
+    }, index * 500); // Delay 500ms untuk setiap elemen
+  });
+}
+
+// Pemicu animasi saat halaman Surah Ar-Rum masuk ke dalam viewport
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      activateAnimations();
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  rootMargin: '0px 0px -50px 0px', // Mengamati sebelum elemen sepenuhnya masuk ke dalam viewport
+  threshold: 0.1 // Mulai memantau ketika elemen 10% masuk ke dalam viewport
+});
+
+// Targetkan elemen section untuk Surah Ar-Rum
+const arRumSection = document.querySelector('.section'); // Pastikan ini menargetkan halaman Surah Ar-Rum
+observer.observe(arRumSection);
   </script>
 </body>
 </html>
