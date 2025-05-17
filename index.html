@@ -242,7 +242,7 @@
     }
     @media (max-width: 768px) {
       .section {
-        padding: 50px 25px;
+        padding: 50px 20px;
         min-height: 100vh;
       }
     
@@ -378,7 +378,10 @@
 @media (max-width: 768px) {
   .verse-box {
     width: 90%;
-    padding: 30px;
+    max-width: 100%;
+    min-height: auto;
+    padding: 30px 20px;
+    margin: 0 auto;
   }
 
   .verse-box p:first-of-type {
@@ -399,7 +402,81 @@
 /* Responsifitas untuk mobile */
 @media (max-width: 768px) {
   .invitation-box {
-    width: 90%; /* Ukuran lebih kecil untuk layar kecil */
+    width: 90%;
+    max-width: 100%;
+    min-height: auto;
+    padding: 30px 20px;
+    margin: 0 auto;
+  }
+
+  .invitation-box h1 {
+    font-size: 2.5rem;
+  }
+
+  .invitation-box h2,
+  .verse-box h2,
+  .section h3 {
+    font-size: 1.4rem;
+  }
+
+  .invitation-box p,
+  .verse-box p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+    button {
+    font-size: 1rem;
+    padding: 10px 16px;
+    width: auto;
+    min-width: 150px;
+  }
+
+    .bride, .groom {
+    margin: 20px 0;
+  }
+
+  .bride img,
+  .groom img {
+    max-width: 120px;
+    border-radius: 50%;
+  }
+
+  .bride h3,
+  .groom h3 {
+    font-size: 1.2rem;
+  }
+
+  .section iframe {
+    height: 200px;
+    width: 100%;
+  }
+
+    .section iframe {
+    height: 200px;
+    width: 100%;
+  }
+
+    footer {
+    font-size: 0.9rem;
+    padding: 20px;
+  }
+
+    .landing-wrapper img {
+    max-width: 180px;
+  }
+
+  .landing-wrapper h3 {
+    font-size: 1.2rem;
+  }
+
+    #guest-name {
+    font-size: 1.2rem;
+  }
+
+  button[type="button"] {
+    font-size: 1rem;
+    padding: 10px 16px;
   }
 }
 
@@ -459,6 +536,14 @@
       height: auto;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* RESPONSIF MOBILE */
+    @media (max-width: 768px) {
+      /* Umum */
+      html, body {
+        font-size: 14px;
+      }
     }
 
     /* Media query untuk responsif */
